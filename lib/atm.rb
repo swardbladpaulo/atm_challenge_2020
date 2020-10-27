@@ -24,14 +24,12 @@ class Atm
 
     private
 
-    def card_expired?(exp_date)
-      Date.strptime(exp_date, '%m/&y') < Date.today
-    end
+    
 
     def incorrect_pin?(pin_code, actual_pin)
         pin_code != actual_pin
     end
-    
+
     def insufficient_funds_in_account?(amount, account)
         amount > account.balance
     end
@@ -44,5 +42,9 @@ class Atm
         @funds -= amount
         account.balance = account.balance - amount
         { status: true, message: 'success', date: Date.today, amount: amount }
+    end
+    
+    def card_expired?(exp_date)
+      Date.strptime(exp_date, '%m/%y') < Date.today
     end
 end
