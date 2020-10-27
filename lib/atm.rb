@@ -24,14 +24,14 @@ class Atm
 
     private
 
-    def insufficient_funds_in_account?(amount, account)
-      amount > account.balance
+    
+
+    def incorrect_pin?(pin_code, actual_pin)
+        pin_code != actual_pin
     end
 
-    def perform_transaction(amount, account)
-      @funds -= amount
-      account.balance = account.balance - amount
-      { status: true, message: 'success', date: Date.today, amount: amount }
+    def insufficient_funds_in_account?(amount, account)
+        amount > account.balance
     end
 
     def insufficient_funds_in_atm?(amount)
@@ -44,5 +44,9 @@ class Atm
 
     def incorrect_pin?(pin_code, actual_pin)
         pin_code != actual_pin
+    end
+    
+    def card_expired?(exp_date)
+      Date.strptime(exp_date, '%m/%y') < Date.today
     end
 end
