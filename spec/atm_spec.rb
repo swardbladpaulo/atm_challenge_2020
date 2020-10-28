@@ -4,7 +4,7 @@ describe Atm do
     let (:account) { instance_double(
         'Account', 
         pin_code: '1234', 
-        exp_date: '04/22', 
+        exp_date: '11/25', 
         account_status: :active) }
 
     before do
