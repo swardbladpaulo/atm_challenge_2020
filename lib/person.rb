@@ -2,14 +2,11 @@
 
 class Person
 
-    attr_accessor :exp_date, :account_status, :pin_code, :balance, :owner 
+    attr_accessor :name, :cash, :account 
 
     def initialize(attrs= {})
-        @owner = 'Paulo'
-        @balance = 1000
-        @exp_date = '10/25'
-        @account_status = :active 
-        @pin_code = '1234'
-        set_owner(attrs[:owner])
+        @name = 'Ann'
+        @cash = 0
+        @account == nil
     end
 end
