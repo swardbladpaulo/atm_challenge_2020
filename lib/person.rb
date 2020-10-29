@@ -2,7 +2,7 @@ require './lib/account.rb'
 require './lib/atm.rb'
 
 class Person
-    attr_accessor :name, :cash, :account
+    attr_accessor :name, :cash, :account 
 
     def initialize(attrs = {})
         @name = set_name(attrs[:name])
@@ -29,8 +29,8 @@ class Person
     private 
 
     def deposit_funds(amount)
-       @account.balance += amount # same account as on row 9
-       @cash -= amount
+        @account.balance += amount # same account as on row 9
+        @cash -= amount
     end
 
     def set_name(name)
@@ -53,9 +53,8 @@ class Person
     def increase_cash(response)
         @cash += response[:amount]
     end
-      
+    
     def missing_atm
         raise RuntimeError, 'An ATM is required'
     end
 end 
-  
