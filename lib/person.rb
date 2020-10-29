@@ -1,4 +1,5 @@
 require './lib/account.rb'
+require './lib/atm.rb'
 
 class Person
     attr_accessor :name, :cash, :account
@@ -16,6 +17,10 @@ class Person
     def deposit(amount)
         @account == nil ? missing_account : deposit_funds(amount) # 1. is account ok? 2. If not go to missing account 3. else go to def deposit_funds
     end
+    
+    def missing_account
+        raise RuntimeError, "No account present"
+    end
 
     private 
 
@@ -31,4 +36,6 @@ class Person
     def missing_name
         raise RuntimeError, "A name is required"
     end 
-end  
+ 
+end 
+  
