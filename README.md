@@ -25,23 +25,23 @@ The customer should be able to withdraw funds of 5, 10 & 20$ bills only if funds
 # Instructions
 
 ## To use with irb
-´´´$ irb
-´´´load ‘./lib/account.rb’
-´´´load ‘./lib/atm.rb’
-´´´load ‘./lib/person.rb’
+```$ irb
+```load ‘./lib/account.rb’
+```load ‘./lib/atm.rb’
+```load ‘./lib/person.rb’
 
 ## Create a user
-´´´ann = Person.new(name: ‘Ann’)
+````ann = Person.new(name: ‘Ann’)
 
 ## Create account
-´´´ann.create_account
+```ann.create_account
 
 ## Create ATM
-´´´atm = Atm.new
-´´´Deposit funds
-´´´ann.deposit 100
-´´´withdraw funds
-´´´ann.withdraw(atm: atm, amount: 50)
+```atm = Atm.new
+```Deposit funds
+```ann.deposit 100
+```withdraw funds
+```ann.withdraw(atm: atm, amount: 50)
 
 # Acknowledgements
 
