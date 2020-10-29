@@ -1,4 +1,4 @@
-require './lib/account'
+require './lib/account.rb'
 
 class Person
 
@@ -11,17 +11,25 @@ class Person
     end
     
     def create_account
-        @account = Account.new(owner: self) # Calling on Account class and therefor we can access :owner    
+        @account = Account.new(owner: self) 
     end
-     
+
+    def deposit(amount)
+        @account == nil ? missing_account : withdraw_funds(args)
+    end
+
+
     private 
-    def set_name(obj)
-        obj == nil ? missing_name : @name = obj
-      end
+
+    def deposit(amount)
+        @account = 
+    end
+
+    def set_name(name)
+        name == nil ? missing_name : @name = name
+    end
 
     def missing_name
-        raise "A name is required"
-    end
-
-    
-end
+        raise RuntimeError, "A name is required"
+    end 
+end  
