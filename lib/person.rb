@@ -1,7 +1,6 @@
 require './lib/account.rb'
 
 class Person
-
     attr_accessor :name, :cash, :account
 
     def initialize(attrs = {})
@@ -21,9 +20,9 @@ class Person
 
     private 
 
-    def deposit(amount)
-        @account = 
-    end
+    #def deposit(amount)
+    #    @account = 
+    #end
 
     def set_name(name)
         name == nil ? missing_name : @name = name

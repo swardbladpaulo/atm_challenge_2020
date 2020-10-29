@@ -3,54 +3,47 @@ require './lib/person.rb'
 
 describe Person do
         
-        subject { described_class.new(name: 'Paulo')}
+    subject { described_class.new(name: 'Paulo') }
 
-        it 'is expected to have a :name on initialize' do
-            expect(subject.name).not_to be nil
-        end
+    it 'is expected to have a :name on initialize' do
+        expect(subject.name).not_to be nil
+    end
 
-        it 'is expected to raise an error if no name is set' do
-            expect { described_class.new }.to raise_error 'A name is required'
-        end
-           
-        it 'is expected to have :cash attribute with the value of 0 on initialize' do
-            expect(subject.cash).to eq 0
-        end
+    it 'is expected to raise an error if no name is set' do
+        expect { described_class.new }.to raise_error 'A name is required'
+    end
+        
+    it 'is expected to have :cash attribute with the value of 0 on initialize' do
+        expect(subject.cash).to eq 0
+    end
 
-        it 'is expected to have a :account attribute' do
-            expect(subject.account).to be nil
-        end
+    it 'is expected to have a :account attribute' do
+        expect(subject.account).to be nil
+    end
     
-        describe 'can create an Account' do
-            before {subject.create_account}
-
-        it 'of Account Class ' do 
+    describe 'can create an Account' do
+        before {subject.create_account}
+        it 'of Account Class' do 
             expect(subject.account).to be_an_instance_of Account
         end
 
-        it 'with himself as an owner' do
-         expect(subject.account.owner).to be subject 
-        end
+        #it 'with himself as an owner' do
+        #    expect(subject.account.owner).to be subject 
+        #end
     end
 
-        describe 'can manage funds if an account been created ' do
+    describe 'can manage funds if an account been created ' do
         let(:atm) {Atm.new}
         before {subject.create_account}
-
+        
         it 'can deposit funds' do
-        expect(subject.deposit(100)).to be_truthy
-        end
-
-        it ' funds are added to the account balance - deducted from cash' do
-            subject.cash = 100
-            subject.deposit(100)
-            expect(subject.account.balance).to be 100 
-            expect(subject.cash).to be 0 
-end
-
-=begin
-    describe 'can not manage funds if no account been created' do
-        it 'can\'t deposit funds' do
-                expect { subject.deposit(100) }.to raise_error(RuntimeError, 'No account present')   
+            expect(subject.deposit(100)).to be_truthy
         end
     end
+
+    describe 'can not manage funds if no account been created' do
+        it 'can\'t deposit funds' do
+            expect { subject.deposit(100) }.to raise_error(RuntimeError, 'No account present')
+        end
+    end
+end
